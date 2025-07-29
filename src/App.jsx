@@ -4,7 +4,7 @@ import Pokecard from "./Pokecard";
 import { ThemeProvider, ThemeContext } from "./ThemeProvider";
 import { useContext, useEffect, useRef, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SignUp from "./SignUp";
+import Signup from "./Signup";
 import Login from "./Login";
 
 function App() {
