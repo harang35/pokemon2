@@ -1,0 +1,421 @@
+/* pc 스타일 */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+  background: #2d333b; /* 기본 배경을 다크모드 색으로 설정 */
+}
+
+.header {
+  width: 100vw;
+  height: 200px;
+  display: flex;
+  flex-direction: column; /* 세로 방향으로 배치 */
+  align-items: center; /* 가로 중앙 정렬 */
+  justify-content: flex-start; /* 세로는 위쪽에 위치 */
+  box-sizing: border-box;
+  padding-top: 20px;
+  margin-bottom: 320px;
+  position: relative;
+}
+
+/* 헤더 내부 가로 정렬 */
+.header-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-input {
+  position: relative;
+  width: 350px;
+  margin: 0 auto;
+}
+
+.input {
+  width: 100%;
+  padding-right: 40px; /* 아이콘 공간 확보 */
+  background: #fff !important;
+  padding: 10px;
+  border: 2px solid rgb(3, 3, 80);
+  border-radius: 25px;
+  box-shadow: 1px 2px 10px rgba(3, 3, 80, 0.3); /* x, y, blur, 색상 */
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+  margin: 20px 0 30px 0; /* 위, 오른쪽, 아래, 왼쪽 */
+  cursor: pointer;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 45%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0;
+}
+
+.search-no-result {
+  margin-top: 6px;
+  color: #e74c3c;
+  font-size: 14px;
+  background: #fff;
+  border-radius: 4px;
+  padding: 4px 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+/* 라이트, 다크모드 스타일 */
+.button {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgb(199, 199, 199);
+  color: white;
+  align-items: center;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.button:hover {
+  background: black;
+  color: orange;
+}
+
+.button:focus,
+.button:active,
+.button:hover {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.input-button {
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* 세로 방향으로 배치 */
+}
+
+.app {
+  min-height: 100vh; /* 화면 전체 높이 차지 */
+}
+
+.app.dark {
+  background: #2d333b !important; /* 우선순위 강제 적용 */
+  color: #adbac7 !important;
+}
+
+.app.light {
+  background: #fff !important;
+  color: #222 !important;
+}
+
+.app.light body {
+  background: #fff; /* 라이트모드 시 body 배경색 변경 */
+}
+
+/* 다크 모드 입력창 스타일 */
+.app.dark .input {
+  background: #333 !important;
+  color: white !important;
+  border-color: #666;
+}
+
+/* 라이트 모드 입력창 색상 */
+.app.light .input {
+  background: white !important;
+  color: #222 !important;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 20px;
+}
+
+/* 언어 변경 버튼 */
+.language-but {
+  width: 50px;
+  height: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border: 1px solid navy;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.language-but:hover {
+  border: 3px solid navy;
+  color: orange;
+}
+
+/* 포켓몬 gif */
+.pokemon-gif {
+  width: 100%;
+  height: 150px; /* 부모 높이 고정 */
+  min-width: 100%; /* 가로 크기 최소값 고정 */
+  min-height: 150px; /* 세로 크기 최소값 고정 */
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* stretch로 변경! */
+  gap: 5px;
+  margin-top: 35px;
+  position: relative;
+  z-index: 10;
+  background-color: black;
+  border: 7px solid black;
+}
+.pokemon-gif img {
+  flex: 1 1 0; /* 균등하게 */
+  width: 100%;
+  height: 100%; /* 부모 높이만큼! */
+  object-fit: contain;
+  min-width: 0;
+  max-width: 100%;
+  display: block;
+}
+
+/* 메인 포켓몬 카드들 */
+.main-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px;
+  justify-content: center;
+}
+
+/* 포켓몬 카드 스타일 */
+.pokecard {
+  flex: 0 1 calc(12.5% - 20px); /* 8개씩 (100/8=12.5%) */
+  max-width: 215px;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* 세로 정렬 */
+  align-items: center; /* 가로 중앙 정렬 */
+  justify-content: center; /* 세로 중앙 정렬 (필요시) */
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.pokecard:hover {
+  transform: scale(1.2); /* 카드가 10% 커짐 */
+  box-shadow: 0 5px 13px rgba(0, 0, 0, 0.5); /* 그림자 진해짐 */
+  background: #d5e5f8;
+  z-index: 1;
+}
+
+.pokeimg {
+  width: 160px;
+  margin-bottom: 15px;
+}
+
+.pokename {
+  font-size: 1.2rem;
+  color: rgb(3, 3, 80);
+  font-weight: bold;
+}
+
+.pokenum {
+  font-size: 0.8rem;
+  color: darkgrey;
+  margin-bottom: 10px;
+}
+
+/* 태블릿 모드 - 601px ~ 1024px */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .pokecard {
+    flex: 0 1 calc(25% - 20px); /* 100/4=25% - 태블릿: 4개 */
+    max-width: 90%;
+  }
+
+  .pokemon-gif img {
+    width: 100%;
+    min-width: 200px; /* 이미지 최소 가로 크기 고정 */
+  }
+}
+
+/* 모바일 모드 - 600px 이하*/
+@media screen and (max-width: 600px) {
+  .pokecard {
+    flex: 0 1 calc(50% - 15px); /* 100/2=50% -모바일: 2개 */
+    max-width: 90%;
+  }
+
+  .pokemon-gif img {
+    width: 100%;
+    min-width: 190px; /* 이미지 최소 가로 크기 고정 */
+  }
+}
+
+/* 회원가입 페이지 스타일 */
+.signup-container {
+  max-width: 500px;
+  margin: 10rem auto 2rem auto; /* 위 10rem, 좌우 auto, 아래 2rem */
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.signup-container.light {
+  background-color: #ebf1f8;
+  border: 3px solid #dee2e6;
+}
+
+.signup-container.dark {
+  background-color: #2d333b;
+  border: 3px solid #444c56;
+  color: #adbac7;
+}
+
+/* 다크모드 인풋창 */
+.signup-container.dark .form-group input {
+  background-color: #48505a !important;
+  color: #fff !important;
+  border: 1px solid #444c56;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #dcdfe2;
+  background-color: white;
+}
+
+button[type="submit"] {
+  background-color: #61b7f7;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #388ee7;
+  color: #fff176;
+}
+
+/* 로그인 버튼 스타일 */
+.login-link {
+  position: absolute;
+  right: 160px; /* 회원가입 버튼 앞 위치*/
+  top: 40px;
+  width: 100px;
+  height: 35px;
+  background-color: lightskyblue;
+  border: 2px solid rgb(88, 183, 242);
+  text-align: center;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  font-weight: bold;
+  color: navy;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.login-link:hover {
+  background: #61b7f7;
+  color: orange;
+}
+
+/* 로그인 페이지의 회원가입버튼 */
+.signup-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1.2rem;
+  font-size: 0.97rem;
+  color: #444;
+}
+
+.signup-bottom.dark span {
+  color: #adbac7;
+}
+
+.signup-link-btn {
+  background-color: #61b7f7;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 0.3rem 1rem;
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.signup-link-btn:hover {
+  background: #388ee7;
+  color: #fff176;
+}
+
+/* 회원가입 버튼 위치 고정 */
+.signup-link {
+  position: absolute;
+  right: 50px;
+  top: 40px;
+  width: 100px;
+  height: 35px;
+  background-color: rgb(179, 224, 252);
+  border: 2px solid rgb(148, 211, 250);
+  text-align: center;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  font-weight: bold;
+  color: rgb(51, 51, 142);
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.signup-link:hover {
+  background: #7bc2f8;
+  color: orange;
+}
+
+.signup-container h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
