@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 
-export default function Signup() {
+export default function SignUp() {
   const { theme } = useContext(ThemeContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
